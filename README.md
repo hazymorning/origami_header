@@ -47,6 +47,10 @@ mode: header
 cards:
   - type: heading
     heading: Home
+    badges:
+      - type: entity
+        entity: weather.home
+        state_content: temperature
 buttons:
   - icon: mdi:pencil-outline
     special: edit
@@ -73,7 +77,7 @@ tap_action:
   origami_header: toggle
 ```
 
-<img alt="A tap on a card opens the menu, shown in list and grid layout" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/menu.webp">
+<img alt="The fold-out menu in list and grid layout" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/menu.webp">
 
 The menu closes when you tap outside, press Escape, swipe it back or tap one of its buttons. Besides `toggle`, the action also takes `open`, `close`, `edit` and `sidebar`.
 
