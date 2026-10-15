@@ -1,4 +1,4 @@
-<img alt="Origami Header with its tagline above three phones: a custom header, the fold-out menu and a header with a clock" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/hero.webp">
+<img alt="Origami Header above three phones with custom headers: icon buttons, buttons with names and a clock" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/hero.webp">
 
 Origami Header replaces the dashboard header in Home Assistant with your own buttons and cards. They can form a new header or a menu that folds out when you tap a card, or you can hide the header completely.
 
@@ -37,9 +37,7 @@ Add the Origami Header card to any view and pick a mode. It changes the header o
 
 <br>
 
-Your cards fill the header and the buttons sit on the right. When there isn't enough room, the buttons move to a second row. Buttons work like the button badges of a heading card, and `cards` takes any card.
-
-<img alt="Three custom headers: icon buttons, buttons with names and a clock card" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/header.webp">
+Your cards fill the header and the buttons sit on the right. When there isn't enough room, the buttons move to a second row. Buttons work like the button badges of a heading card and can have an icon, a name or both, and `cards` takes any card, like a clock.
 
 ```yaml
 type: custom:origami-header-card
