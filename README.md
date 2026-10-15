@@ -1,15 +1,15 @@
 <img alt="Origami Header with its tagline above three phones: a custom header, the fold-out menu and a header with a clock" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/hero.webp">
 
-Origami Header replaces the dashboard header in Home Assistant with your own buttons and cards. You can turn them into a new header or into a menu that folds out when you tap a card, or hide the header completely.
+Origami Header replaces the dashboard header in Home Assistant with your own buttons and cards. They can form a new header or a menu that folds out when you tap a card, or you can hide the header completely.
 
 > [!NOTE]
-> This card was created because there still isn't a proper way to actually hide the header in Home Assistant. With kiosk mode or CSS it shows up for a moment anyway, every single time a dashboard opens, and that looks bad. Origami Header solves a problem that has been around for years, but it can be considered a bit hacky and experimental.
+> There is still no proper way to hide the header in Home Assistant. With kiosk mode or CSS it shows up for a moment anyway, every time a dashboard opens, and that looks bad. Origami Header solves a problem that has been around for years, but it's a bit hacky and experimental.
 
 ## Installation
 
 [![Open your Home Assistant instance and open this repository inside HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=hazymorning&repository=origami_header&category=plugin)
 
-Download Origami Header in HACS, add it to `configuration.yaml` as an extra module and restart Home Assistant. It has to be an extra module, because a dashboard resource loads too late and the normal header would already be on screen. You need Home Assistant 2026.9 or newer.
+Download Origami Header in HACS, add it to `configuration.yaml` as an extra module and restart Home Assistant. It has to be an extra module, because a dashboard resource loads too late and the default header would already be on screen. If `frontend:` is already in the file, add only the `extra_module_url` lines. You need Home Assistant 2026.9 or newer.
 
 ```yaml
 frontend:
@@ -28,7 +28,7 @@ Download `origami-header.js` from the [latest release](https://github.com/hazymo
 
 ## Usage
 
-Add the Origami Header card to any view and pick a mode. It changes the header of the whole dashboard, and only admins see it unless you turn on `all_users`. The card itself stays invisible. In edit mode the normal header comes back, and you get there with a button that has `special: edit` or by adding `?edit=1` to the address.
+Add the Origami Header card to any view and pick a mode. It changes the header of the whole dashboard, and only admins see it unless you turn on `all_users`. The card itself stays invisible. In edit mode the default header comes back, and you get there with a button that has `special: edit`, a card with the `origami_header: edit` action, or by adding `?edit=1` to the address.
 
 <img alt="The three modes on three phones: a custom header, the open fold-out menu and a dashboard without a header" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/modes.webp">
 
@@ -100,6 +100,8 @@ You can set everything in the visual editor, and in edit mode the card shows a p
 
 Each button takes `name`, `icon`, `color` (a theme color like `amber` or any CSS color) and `tap_action`, `hold_action` and `double_tap_action`. Instead of a tap action, `special: edit` turns on edit mode and `special: sidebar` toggles the sidebar. Only admins see the edit button.
 
+Only the first Origami Header card of a dashboard counts, and visibility conditions on it are ignored.
+
 </details>
 
 <a name="styling"></a>
@@ -115,12 +117,17 @@ The buttons follow your theme and use the same variables as cards and badges. Fo
 | `.bar` | The custom header |
 | `.scrim`, `.sheet` | The backdrop and the menu |
 | `.cards`, `.buttons` | The cards and the buttons |
-| `.button`, `.button ha-icon`, `.name` | A button, its icon and its name |
+| `.button`, `.button ha-icon`, `.button ha-ripple`, `.name` | A button, its icon, its ripple and its name |
 | `.note` | The "No header" text in the card preview |
+
+`:host([open])` matches while the menu is open. This blurs the dashboard behind the menu:
 
 ```yaml
 css: |
-  .scrim { backdrop-filter: blur(12px); }
+  .scrim {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
 ```
 
 </details>
@@ -130,7 +137,7 @@ css: |
 
 <br>
 
-Home Assistant has a placeholder for the header, and the normal header only shows up when nothing else fills it. Origami Header fills it after the dashboard is built but before the browser shows it, so the normal header never appears. If an update changes that placeholder, Origami Header keeps the normal header and logs a warning, so the dashboard stays usable.
+Home Assistant has a placeholder for the header, and the default header only shows up when nothing else fills it. Origami Header fills it with your header, or hides the header, after the dashboard is built but before the browser shows it. So the default header never appears. If an update changes that placeholder, Origami Header keeps the default header and logs a warning, so the dashboard stays usable.
 
 </details>
 
