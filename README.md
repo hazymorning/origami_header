@@ -1,4 +1,4 @@
-<img alt="Origami Header with its tagline above three phones: a custom header, the fold-out menu and a header with a clock" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/hero.webp">
+<img alt="Origami Header above three phones: a custom header, the open fold-out menu and a header with a clock" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/hero.webp">
 
 Origami Header replaces the dashboard header in Home Assistant with your own buttons and cards. They can form a new header or a menu that folds out when you tap a card, or you can hide the header completely.
 
@@ -32,14 +32,16 @@ Add the Origami Header card to any view and pick a mode. It changes the header o
 
 <img alt="The three modes on three phones: a custom header, the open fold-out menu and a dashboard without a header" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/modes.webp">
 
+<sub>The screenshots use the [Origami](https://github.com/hazymorning/origami) theme and dashboard, with the Slim layout of [Origami Weather](https://github.com/hazymorning/origami_weather#layouts).</sub>
+
 <details>
 <summary><b>Custom header</b></summary>
 
 <br>
 
-Your cards fill the header and the buttons sit on the right. When there isn't enough room, the buttons move to a second row. Buttons work like the button badges of a heading card, and `cards` takes any card.
+Your cards fill the header and the buttons sit on the right. When there isn't enough room, the buttons move to a second row. Buttons work like the button badges of a heading card and can have an icon, a name or both, and `cards` takes any card, like a clock.
 
-<img alt="Three custom headers: icon buttons, buttons with names and a clock card" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/header.webp">
+This is the first header in the screenshots. Its `css` uses variables of the [Origami theme](https://github.com/hazymorning/origami#theme), and the lights badge counts with one of the [Origami helpers](https://github.com/hazymorning/origami#helpers).
 
 ```yaml
 type: custom:origami-header-card
@@ -49,8 +51,12 @@ cards:
     heading: Home
     badges:
       - type: entity
-        entity: weather.home
-        state_content: temperature
+        entity: sensor.living_room_temperature
+        icon: mdi:home-thermometer-outline
+      - type: entity
+        entity: sensor.lights_on_count
+        icon: mdi:lightbulb-group
+        color: amber
 buttons:
   - icon: mdi:pencil-outline
     special: edit
@@ -60,6 +66,32 @@ buttons:
       navigation_path: /config/automation/dashboard
   - icon: mdi:menu
     special: sidebar
+css: |
+  :host([mode="header"]) .bar {
+    padding: var(--ha-space-3) var(--view-bleed) var(--ha-space-4);
+    border-bottom: none;
+  }
+  :host([mode="header"]) .cards {
+    flex: 1 1 auto;
+    margin-inline-start: calc(-1 * var(--ha-space-1));
+  }
+  :host([mode="header"]) .buttons {
+    gap: var(--ha-space-2);
+  }
+  :host([mode="header"]) .button {
+    height: var(--control-height-icon);
+    min-width: var(--control-height-icon);
+    border-radius: var(--radius-inner);
+    background: var(--fill-subtle);
+    box-shadow: none;
+  }
+  :host([mode="header"]) .button ha-icon {
+    color: var(--color, var(--primary-text-color));
+    --mdc-icon-size: var(--icon-size-s);
+  }
+  :host([mode="header"]) .name {
+    font-weight: var(--ha-font-weight-bold);
+  }
 ```
 
 </details>
@@ -78,6 +110,8 @@ tap_action:
 ```
 
 <img alt="The fold-out menu in list and grid layout" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/menu.webp">
+
+The menu in the screenshots is the one from the [Origami dashboard](https://github.com/hazymorning/origami#menu), which also explains its server card.
 
 The menu closes when you tap outside, press Escape, swipe it back or tap one of its buttons. Besides `toggle`, the action also takes `open`, `close`, `edit` and `sidebar`.
 
