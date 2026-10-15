@@ -26,7 +26,8 @@ Applies to the README, comments, commit messages, issues and release notes.
 - No emojis, no exclamation marks, no em dashes, no marketing words.
 - Headings in sentence case.
 - Do not add sections, badges or files that nobody asked for.
-- Keep the README short. Everything beyond installation and the basics goes into `<details>` blocks.
+- Keep the README short. It should take little height and look clean and polished. Everything beyond installation and the basics goes into `<details>` blocks, and nothing goes in that a user does not need.
+- README screenshots show the Origami theme and dashboard style, and only the part of the phone where the header is. The theme itself stays out of this repo.
 - Commit with the repository owner's git identity, never as Claude, and without Co-Authored-By or other AI trailers. The note on AI in the README covers that.
 
 ## Home Assistant internals
