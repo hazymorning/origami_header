@@ -179,4 +179,4 @@ Home Assistant has a placeholder for the header, and the default header only sho
 
 </details>
 
-<sub>AI is used as a tool in this project.</sub>
+<sub>This card exists out of pure frustration. For years, a flickering header annoyed me every single day. I searched for a fix, posted in several forums, and never found an answer. Eventually, some intensive research with the help of AI produced a prototype that, while not the cleanest solution technically, turned out to be by far the most effective one. Its main purpose is simply to hide that header, everything else it does is a bonus.</sub>
