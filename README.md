@@ -1,47 +1,72 @@
-<img alt="Origami Header above three phones: a custom header, the open fold-out menu and a header with a clock" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/hero.webp">
+<div>
+<a href="https://github.com/hazymorning/origami_header/releases/latest"><img alt="Latest release" src="https://img.shields.io/badge/Release-V0.4.3-F6F4F1?labelColor=181715"></a>
+<a href="https://github.com/hazymorning?tab=repositories&q=origami"><img alt="Origami suite" src="https://img.shields.io/badge/Origami-Suite-F6F4F1?labelColor=181715&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiBmaWxsPSJub25lIiBzdHJva2U9IiNGNkY0RjEiIHN0cm9rZS13aWR0aD0iMiIvPjxwb2x5Z29uIHBvaW50cz0iMjEsMyAyMSwyMSAzLDIxIiBmaWxsPSIjRjZGNEYxIi8%2BPC9zdmc%2B"></a>
+</div>
 
-Origami Header replaces the dashboard header in Home Assistant with your own buttons and cards. They can form a new header or a menu that folds out when you tap a card, or you can hide the header completely.
+Origami Header replaces the dashboard header in Home Assistant with buttons and cards of one's own. They form a new header or a menu that folds out at a tap on a card, or the header goes away completely.
 
 > [!NOTE]
-> There is still no proper way to hide the header in Home Assistant. With kiosk mode or CSS it shows up for a moment anyway, every time a dashboard opens, and that looks bad. Origami Header solves a problem that has been around for years, but it's a bit hacky and experimental.
+> Home Assistant still has no proper way to hide the header. With kiosk mode or CSS, it shows up for a moment every time a dashboard opens. Origami Header avoids that, but it's a bit hacky and experimental.
 
-## Installation
+[Get started](#get-started) · [Modes](#modes) · [More](#more)
 
-[![Open your Home Assistant instance and open this repository inside HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=hazymorning&repository=origami_header&category=plugin)
-
-Download Origami Header in HACS, add it to `configuration.yaml` as an extra module and restart Home Assistant. It has to be an extra module, because a dashboard resource loads too late and the default header would already be on screen. If `frontend:` is already in the file, add only the `extra_module_url` lines. You need Home Assistant 2026.9 or newer.
-
-```yaml
-frontend:
-  extra_module_url:
-    - /hacsfiles/origami_header/origami-header.js
-```
+## Get started
 
 <details>
-<summary><b>Manual installation</b></summary>
+<summary><b>Install the module</b></summary>
 
 <br>
 
-Download `origami-header.js` from the [latest release](https://github.com/hazymorning/origami_header/releases/latest) into `config/www/` and use `/local/origami-header.js?v=0.4.3` as the extra module instead. Change the version after each update, otherwise your browser keeps using the old file.
+Origami Header needs Home Assistant 2026.9 or newer.
+
+1. Open Origami Header in HACS. If HACS asks to add the repository, select **Add**. Then select **Download**.
+
+   [![Open this repository in HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=hazymorning&repository=origami_header&category=plugin)
+
+2. Add it to [`configuration.yaml`](https://www.home-assistant.io/docs/configuration/#editing-configurationyaml) as an extra module. If `frontend:` is already there, only the `extra_module_url` lines go under it.
+
+   ```yaml
+   frontend:
+     extra_module_url:
+       - /hacsfiles/origami_header/origami-header.js
+   ```
+
+3. Restart Home Assistant.
+
+It has to be an extra module, because a dashboard resource loads too late, when the default header is already on screen.
+
+Without HACS, copy `origami-header.js` from the [latest release](https://github.com/hazymorning/origami_header/releases/latest) to `/config/www` and use `/local/origami-header.js?v=0.4.3` as the extra module. The version at the end changes with each update, so the browser loads the new file.
 
 </details>
 
-## Usage
-
-Add the Origami Header card to any view and pick a mode. It changes the header of the whole dashboard, and only admins see it unless you turn on `all_users`. The card itself stays invisible. In edit mode the default header comes back, and you get there with a button that has `special: edit`, a card with the `origami_header: edit` action, or by adding `?edit=1` to the address.
-
-<img alt="The three modes on three phones: a custom header, the open fold-out menu and a dashboard without a header" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/modes.webp">
-
-<sub>The screenshots use the [Origami](https://github.com/hazymorning/origami) theme and dashboard, with the Slim layout of [Origami Weather](https://github.com/hazymorning/origami_weather#layouts).</sub>
-
 <details>
-<summary><b>Custom header</b></summary>
+<summary><b>Add the card</b></summary>
 
 <br>
 
-Your cards fill the header and the buttons sit on the right. When there isn't enough room, the buttons move to a second row. Buttons work like the button badges of a heading card and can have an icon, a name or both, and `cards` takes any card, like a clock.
+1. Edit a dashboard and add the **Origami Header** card to any view.
+2. Choose a mode.
 
-This is the first header in the screenshots. Its `css` uses variables of the [Origami theme](https://github.com/hazymorning/origami#theme), and the lights badge counts with one of the [Origami helpers](https://github.com/hazymorning/origami#helpers).
+The card changes the header of the whole dashboard and stays invisible itself. Only admins see the change, unless `all_users` is on. In edit mode the default header comes back, and edit mode opens from a button with `special: edit`, a card with the `origami_header: edit` action, or with `?edit=1` at the end of the address.
+
+</details>
+
+## Modes
+
+<sub>The images show the [Origami](https://github.com/hazymorning/origami) dashboard and theme.</sub>
+
+### Custom header
+
+<img width="800" alt="A custom header with the title Home, the temperature and humidity, and buttons for edit mode, automations and the sidebar, above the Origami dashboard, in light and dark mode" src="https://raw.githubusercontent.com/hazymorning/origami_header/next/images/header.webp">
+
+Cards and buttons of one's own in the header's place. When the buttons don't fit, they move to a second row.
+
+<details>
+<summary><b>The header in the image</b></summary>
+
+<br>
+
+Buttons work like the button badges of a heading card and can have an icon, a name or both. `cards` takes any card, such as a clock. The `css` uses variables of the [Origami theme](https://github.com/hazymorning/origami).
 
 ```yaml
 type: custom:origami-header-card
@@ -54,9 +79,8 @@ cards:
         entity: sensor.living_room_temperature
         icon: mdi:home-thermometer-outline
       - type: entity
-        entity: sensor.lights_on_count
-        icon: mdi:lightbulb-group
-        color: amber
+        entity: sensor.living_room_humidity
+        icon: mdi:water-percent
 buttons:
   - icon: mdi:pencil-outline
     special: edit
@@ -96,12 +120,18 @@ css: |
 
 </details>
 
+### Fold-out menu
+
+<img width="800" alt="The fold-out menu of the Origami dashboard, with the server's status and buttons for files, automations, the sidebar and edit mode, in light and dark mode" src="https://raw.githubusercontent.com/hazymorning/origami/main/images/v3/menu.webp">
+
+No header, and a menu that folds out at a tap on another card. The image shows the [menu of the Origami dashboard](https://github.com/hazymorning/origami/tree/main/dashboard/menu).
+
 <details>
-<summary><b>Fold-out menu</b></summary>
+<summary><b>Open the menu</b></summary>
 
 <br>
 
-With `mode: menu` the header is hidden, and the menu folds out when another card fires this action:
+With `mode: menu`, another card opens the menu with this action:
 
 ```yaml
 tap_action:
@@ -109,22 +139,24 @@ tap_action:
   origami_header: toggle
 ```
 
-<img alt="The fold-out menu in list and grid layout" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/menu.webp">
-
-The menu in the screenshots is the one from the [Origami dashboard](https://github.com/hazymorning/origami#menu), which also explains its server card.
-
-The menu closes when you tap outside, press Escape, swipe it back or tap one of its buttons. Besides `toggle`, the action also takes `open`, `close`, `edit` and `sidebar`.
+Besides `toggle`, the action takes `open`, `close`, `edit` and `sidebar`. The menu closes at a tap outside or on one of its buttons, with Escape, or when it's swiped back.
 
 </details>
+
+### No header
+
+<img width="800" alt="The Origami dashboard without a header, starting right with the greeting and the weather, in light and dark mode" src="https://raw.githubusercontent.com/hazymorning/origami_header/next/images/hidden.webp">
+
+No header at all, so the dashboard starts right at the top.
+
+## More
 
 <details>
 <summary><b>Options</b></summary>
 
 <br>
 
-You can set everything in the visual editor, and in edit mode the card shows a preview.
-
-<img alt="The card's preview in edit mode and the visual editor" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/editing.webp">
+The visual editor covers every option, and in edit mode the card shows a preview.
 
 | Option | Default | Description |
 | --- | --- | --- |
@@ -134,21 +166,20 @@ You can set everything in the visual editor, and in edit mode the card shows a p
 | `position` | `top` | The edge the menu opens from, `top` or `bottom` |
 | `layout` | `list` | The buttons in the menu, `list` with two columns or `grid` with four |
 | `all_users` | `false` | Shows it to everyone. Otherwise other users get no header at all. |
-| `css` | | Your own styles, see [Styling](#styling) |
+| `css` | | Styles of one's own, see Styling below |
 
-Each button takes `name`, `icon`, `color` (a theme color like `amber` or any CSS color) and `tap_action`, `hold_action` and `double_tap_action`. Instead of a tap action, `special: edit` turns on edit mode and `special: sidebar` toggles the sidebar. Only admins see the edit button.
+Each button takes `name`, `icon`, `color` (a theme color like `amber` or any CSS color) and `tap_action`, `hold_action` and `double_tap_action`. Instead of a tap action, `special: edit` turns on edit mode and `special: sidebar` opens or closes the sidebar. Only admins see the edit button.
 
 Only the first Origami Header card of a dashboard counts, and visibility conditions on it are ignored.
 
 </details>
 
-<a name="styling"></a>
 <details>
 <summary><b>Styling</b></summary>
 
 <br>
 
-The buttons follow your theme and use the same variables as cards and badges. For anything else, the `css` option targets these classes:
+The buttons follow the theme and use the same variables as cards and badges. For anything else, the `css` option targets these classes:
 
 | Class | Part |
 | --- | --- |
@@ -175,8 +206,8 @@ css: |
 
 <br>
 
-Home Assistant has a placeholder for the header, and the default header only shows up when nothing else fills it. Origami Header fills it with your header, or hides the header, after the dashboard is built but before the browser shows it. So the default header never appears. If an update changes that placeholder, Origami Header keeps the default header and logs a warning, so the dashboard stays usable.
+Home Assistant has a placeholder for the header, and the default header only shows up when nothing else fills it. Origami Header fills it, or hides the header, after the dashboard is built but before the browser shows it, so the default header never appears. If an update changes that placeholder, Origami Header keeps the default header and logs a warning, so the dashboard stays usable.
 
 </details>
 
-<sub>This card exists out of pure frustration. For years, a flickering header annoyed me every single day. I searched for a fix, posted in several forums, and never found an answer. Eventually, some intensive research with the help of AI produced a prototype that, while not the cleanest solution technically, turned out to be by far the most effective one. Its main purpose is simply to hide that header, everything else it does is a bonus.</sub>
+<sub>Origami Header exists out of pure frustration. For years, a flickering header was annoying every single day, and no forum had a fix. Research with the help of AI led to a prototype that isn't the cleanest solution, but by far the most effective one. Its main purpose is to hide that header, and everything else is a bonus.</sub>
