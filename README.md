@@ -57,7 +57,7 @@ The card changes the header of the whole dashboard and stays invisible itself. O
 
 ### Custom header
 
-<img width="800" alt="A custom header with the title Home, the temperature and humidity, and buttons for edit mode, automations and the sidebar, above the Origami dashboard, in light and dark mode" src="https://raw.githubusercontent.com/hazymorning/origami_header/next/images/header.webp">
+<img width="800" alt="A custom header with the title Home, the temperature and humidity, and buttons for edit mode, automations and the sidebar, above the Origami dashboard, in light and dark mode" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/header.webp">
 
 Cards and buttons of one's own in the header's place. When the buttons don't fit, they move to a second row.
 
@@ -145,7 +145,7 @@ Besides `toggle`, the action takes `open`, `close`, `edit` and `sidebar`. The me
 
 ### No header
 
-<img width="800" alt="The Origami dashboard without a header, starting right with the greeting and the weather, in light and dark mode" src="https://raw.githubusercontent.com/hazymorning/origami_header/next/images/hidden.webp">
+<img width="800" alt="The Origami dashboard without a header, starting right with the greeting and the weather, in light and dark mode" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/hidden.webp">
 
 No header at all, so the dashboard starts right at the top.
 
