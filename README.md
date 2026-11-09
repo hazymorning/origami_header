@@ -55,11 +55,11 @@ The card changes the header of the whole dashboard and stays invisible itself. O
 
 ## Modes
 
-<sub>The images show the [Origami](https://github.com/hazymorning/origami) dashboard and theme.</sub>
+<sub>The images show the [Origami](https://github.com/hazymorning/origami) theme.</sub>
 
 ### Custom header
 
-<img width="800" alt="A custom header with the title Home, the temperature and humidity, and buttons for edit mode, automations and the sidebar, above the Origami dashboard, in light and dark mode" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/header.webp">
+<img width="800" alt="A custom header with the title Home, the temperature and humidity, and buttons for edit mode, automations and the sidebar, in light and dark mode" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/header.webp">
 
 Cards and buttons of one's own in the header's place. When the buttons don't fit, they move to a second row.
 
@@ -124,7 +124,7 @@ css: |
 
 ### Fold-out menu
 
-<img width="800" alt="The fold-out menu of the Origami dashboard, with the server's status and buttons for files, automations, the sidebar and edit mode, in light and dark mode" src="https://raw.githubusercontent.com/hazymorning/origami/main/images/v3/menu.webp">
+<img width="800" alt="The fold-out menu of the Origami dashboard, with the server's status and buttons for files, automations, the sidebar and edit mode, in light and dark mode" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/menu.webp">
 
 No header, and a menu that folds out at a tap on another card. The image shows the [menu of the Origami dashboard](https://github.com/hazymorning/origami/tree/main/dashboard/menu).
 
