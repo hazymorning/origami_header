@@ -12,7 +12,7 @@
 Origami Header hides the dashboard header in Home Assistant, without it ever flashing up. If wanted, a custom header with buttons and cards takes its place, or a menu folds out at a tap on a card.
 
 > [!NOTE]
-> Home Assistant has no official way to hide the header, so every solution has to work around it. Kiosk mode and CSS hide it only once it's already on screen, which is why it still flashes up for a moment. Origami Header hides it before the browser shows the dashboard, so it never appears. Without an official way, this relies on how Home Assistant builds the page, and that's the only reason it's still a bit experimental.
+> Home Assistant has no official way to hide the header. Kiosk mode and CSS hide it only after it's drawn, so it still flashes up for a moment. Origami Header hides it before the dashboard is shown, so it never appears. Without an official way, it relies on Home Assistant's internals and is still a bit experimental.
 
 [Get started](#get-started) · [Modes](#modes) · [More](#more)
 
