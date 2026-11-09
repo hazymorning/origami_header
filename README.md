@@ -7,7 +7,7 @@
 
 <br>
 
-<img alt="Origami Header's custom header with a title, two values and three buttons, in light and dark mode" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/hero.webp">
+<img alt="Origami Header with two custom headers and the menu that folds out below them, in light and dark mode" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/hero.webp">
 
 Origami Header hides the dashboard header in Home Assistant without the flash. Kiosk mode and CSS still show the header for a moment every time a dashboard opens. With Origami Header, it never appears.
 
