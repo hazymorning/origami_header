@@ -5,13 +5,13 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/hero-dark.webp">
-  <img alt="Origami Header with a custom header and the menu that folds out" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/hero-light.webp">
+  <img alt="Origami Header on two phones, with the dashboard right at the top and no header, in light and dark mode" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/hero-light.webp">
 </picture>
 
-Origami Header replaces the dashboard header in Home Assistant with buttons and cards of one's own. They form a new header or a menu that folds out at a tap on a card, or the header goes away completely.
+Origami Header hides the dashboard header in Home Assistant without the flash. Kiosk mode and CSS still show the header for a moment every time a dashboard opens. With Origami Header, it never appears.
 
 > [!NOTE]
-> Home Assistant still has no proper way to hide the header. With kiosk mode or CSS, it shows up for a moment every time a dashboard opens. Origami Header avoids that, but it's a bit hacky and experimental.
+> Home Assistant has no proper way to hide the header, so Origami Header is a bit hacky and experimental.
 
 [Get started](#get-started) · [Modes](#modes) · [More](#more)
 
@@ -50,9 +50,12 @@ Without HACS, copy `origami-header.js` from the [latest release](https://github.
 <br>
 
 1. Edit a dashboard and add the **Origami Header** card to any view.
-2. Choose a mode.
+2. Choose **No header**, or one of the modes that put something in its place.
 
-The card changes the header of the whole dashboard and stays invisible itself. Only admins see the change, unless `all_users` is on. In edit mode the default header comes back, and edit mode opens from a button with `special: edit`, a card with the `origami_header: edit` action, or with `?edit=1` at the end of the address.
+The card changes the header of the whole dashboard and stays invisible itself.
+
+- Only admins see the change, unless `all_users` is on.
+- In edit mode, the default header comes back. Edit mode opens from a button with `special: edit`, a card with the `origami_header: edit` action, or with `?edit=1` at the end of the address.
 
 </details>
 
@@ -60,11 +63,17 @@ The card changes the header of the whole dashboard and stays invisible itself. O
 
 <sub>The images show the [Origami](https://github.com/hazymorning/origami) theme.</sub>
 
+### No header
+
+<img width="800" alt="The top of the Origami dashboard on a phone, with no header above the first card, in light and dark mode" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/hidden.webp">
+
+The header is gone, and the dashboard starts right at the top. This is what Origami Header was made for.
+
 ### Custom header
 
 <img width="800" alt="A custom header with the title Home, the temperature and humidity, and buttons for edit mode, automations and the sidebar, in light and dark mode" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/header.webp">
 
-Cards and buttons of one's own in the header's place. When the buttons don't fit, they move to a second row.
+Cards and buttons in the header's place. When the buttons don't fit, they move to a second row.
 
 <details>
 <summary><b>The header in the image</b></summary>
@@ -148,10 +157,6 @@ Besides `toggle`, the action takes `open`, `close`, `edit` and `sidebar`. The me
 
 </details>
 
-### No header
-
-No header at all, so the dashboard starts right at the top.
-
 ## More
 
 <details>
@@ -169,7 +174,7 @@ The visual editor covers every option, and in edit mode the card shows a preview
 | `position` | `top` | The edge the menu opens from, `top` or `bottom` |
 | `layout` | `list` | The buttons in the menu, `list` with two columns or `grid` with four |
 | `all_users` | `false` | Shows it to everyone. Otherwise other users get no header at all. |
-| `css` | | Styles of one's own, see Styling below |
+| `css` | | Custom styles, see Styling below |
 
 Each button takes `name`, `icon`, `color` (a theme color like `amber` or any CSS color) and `tap_action`, `hold_action` and `double_tap_action`. Instead of a tap action, `special: edit` turns on edit mode and `special: sidebar` opens or closes the sidebar. Only admins see the edit button.
 
