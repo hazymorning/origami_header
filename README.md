@@ -3,9 +3,11 @@
 <div>
 <a href="https://github.com/hazymorning/origami_header/releases/latest"><img alt="Latest release" src="https://img.shields.io/badge/Release-V0.4.3-F6F4F1?labelColor=181715"></a>
 <a href="https://github.com/hazymorning?tab=repositories&q=origami"><img alt="Origami suite" src="https://img.shields.io/badge/Origami-Suite-F6F4F1?labelColor=181715&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiBmaWxsPSJub25lIiBzdHJva2U9IiNGNkY0RjEiIHN0cm9rZS13aWR0aD0iMiIvPjxwb2x5Z29uIHBvaW50cz0iMjEsMyAyMSwyMSAzLDIxIiBmaWxsPSIjRjZGNEYxIi8%2BPC9zdmc%2B"></a>
-<br>
-<img alt="Origami Header's custom header with a title, two values and three buttons, in light and dark mode" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/hero.webp">
 </div>
+
+<br>
+
+<img alt="Origami Header's custom header with a title, two values and three buttons, in light and dark mode" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/hero.webp">
 
 Origami Header hides the dashboard header in Home Assistant without the flash. Kiosk mode and CSS still show the header for a moment every time a dashboard opens. With Origami Header, it never appears.
 
