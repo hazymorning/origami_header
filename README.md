@@ -68,7 +68,7 @@ The card changes the header of the whole dashboard and stays invisible itself.
 
 <img width="800" alt="The top of the Origami dashboard on a phone, with no header above the first card, in light and dark mode" src="https://raw.githubusercontent.com/hazymorning/origami_header/main/images/hidden.webp">
 
-The header is gone, and the dashboard starts right at the top. This is what Origami Header was made for.
+In this mode, the Home Assistant header is gone, so the dashboard starts right at the top. That's exactly what Origami Header was made for: hiding the header without relying on CSS alone. Yes, "Origami No Header" might have been a more accurate name, but it sounds odd, and the card can still show a header when you want one, after all.
 
 ### Custom header
 
